@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+			body {
+				background-image: url('relax_m.jpg');
+				background-size:     cover;
+    			background-repeat:   no-repeat;
+    			background-position: center center; 
+    			background-color: black;
+			}
+			form {
+				position: absolute;
+				height : 40%;
+				width : 350px;
+				margin-left: 26em;
+				margin-top : 3em;
+				font-size: 20px;
+				color: white;
+				font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+			}
+			label {
+				display : block;
+				padding: 20px;
+			}
+			img {
+				position: absolute;
+				top: 640px;
+			}
+		</style>
+	</head>
+	<body>
+		<center>
+			<div id >
+			<form id = "f" action="upload.php" method="post" enctype="multipart/form-data">
+				<label id = "l1">Compress <input type = "radio" value = "c" name = "op" onclick = "check(this)" id = "1" /></label>
+				<label id = "2l" >Decompress <input type = "radio" value = "d" name = "op" onclick = "check(this)" id = "2"/></label>
+				<input type = "submit" id = "s" name = "submit"/>
+			</form>
+			</div>
+		</center>
+		<script>
+			function check(ele) {
+				var val = ele.value;
+				switch(val){
+					case "c" :
+						var upl = document.createElement("input");
+						upl.setAttribute("type","file");
+						upl.setAttribute("name","fileToUpload");
+						upl.setAttribute("value","Upload the file");
+						upl.style.display = "block";
+						document.getElementById("2").remove();
+						document.getElementById("2l").remove();
+						document.getElementById("f").insertBefore(upl,f.childNodes[2]);
+						break;
+					case "d" :
+						var upl = document.createElement("input");
+						upl.setAttribute("type","file");
+						upl.setAttribute("name","fileToUpload");
+						upl.setAttribute("value","Upload the file");
+						upl.style.display = "block";
+						document.getElementById("1").remove();
+						document.getElementById("l1").remove();
+						document.getElementById("f").insertBefore(upl,f.childNodes[3]);
+						break;
+				}
+			}
+		</script>
+		<center><img src = "PoweredByMacOSX.gif" /></center>
+	</body>
+</html>
